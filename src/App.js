@@ -1,28 +1,21 @@
 import "./App.css";
 
-import Navbar from "./Components/Nav";
+import Navbar from "./Components/Navbar/Nav";
 
-import Textfield from "./Components/Textfield";
-//import BoxDemo from "./Components/BoxStackGridPaperDemo";
-import Card from "./Components/Card";
+import Textfield from "./Components/Textfield/Textfield";
+
+import Card from "./Components/Card/CardLogic";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <br>
-      </br>
-      <br>
-      </br>
-      <br>
-      </br>
-      <br>
-      </br>
+
       <Textfield />
 
-      <Card/>
+      <Card />
 
-      {/* <BoxDemo/> */}
+
     </div>
   );
 }
