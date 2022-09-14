@@ -39,7 +39,7 @@ export default function BasicTextFields() {
           />
           <Date />
           <ThemeProvider theme={theme}>
-            <Button variant="contained" sx={{ height: 55 }} color="neutral">
+            <Button variant="contained" sx={{ height: 55 }} color="primary">
               Search
             </Button>
           </ThemeProvider>
