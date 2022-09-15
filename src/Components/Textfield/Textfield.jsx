@@ -1,17 +1,17 @@
-import * as React from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 
 import { Button, Grid, TextField } from "@mui/material";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+//import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Date from "./DatePickerDemo";
-
-const theme = createTheme({
-  palette: {
-    neutral: {
-      main: "#B7C4CF",
-    },
-  },
-});
+import Checkbox from './Checkbox'
+// const theme = createTheme({
+//   palette: {
+//     neutral: {
+//       main: "#B7C4CF",
+//     },
+//   },
+// });
 
 export default function BasicTextFields() {
   return (
@@ -38,11 +38,16 @@ export default function BasicTextFields() {
             variant="outlined"
           />
           <Date />
-          <ThemeProvider theme={theme}>
-            <Button variant="contained" sx={{ height: 55 }} color="primary">
-              Search
-            </Button>
-          </ThemeProvider>
+          <Checkbox />
+
+          <Button variant="outlined" size="medium" color="primary">
+            Reset
+          </Button>
+
+          <Button variant="contained" size="medium" sx={{ height: 55 }} color="primary">
+            Search
+          </Button>
+
         </Box>
       </Grid>
     </Grid>

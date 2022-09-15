@@ -1,6 +1,7 @@
 import React from "react";
-import { Button, Card, CardContent, CardHeader, Grid, Typography } from "@mui/material";
+import { Button, Card, CardContent, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 
 const CardContents = (props) => {
@@ -10,33 +11,46 @@ const CardContents = (props) => {
     return <Grid container rowSpacing={5} columnSpacing={15} >
         {props.cards.map(card => {
             const { "Course Id": id, "Course Name": name, "Provider": provider, "Child Subject": child, "Universities/Institutions": university,
-                "Url": url, "Video(Url)": video, "Parent Subject": parent } = card
+                "Url": url, "Video(Url)": video, "Parent Subject": parent, "Next Session Date": date } = card
             return <Grid item key={id} xs={12} md={6} lg={4}  >
                 <Card elevation={10} >
-                    <CardHeader
-                        title={id} align='left'
-                    />
+
+
                     <CardContent >
-                        <Typography variant="body" display="block" align="left" >
+
+                        <Typography variant='h6' fontWeight='light' component="div" display="block" align="left" >
+                            <Box
+                                component='span'
+                                display='flex'
+                                justifyContent='space-between'
+                            >{id}
+                                <Box
+                                    display='inline-flex'
+                                    alignItems='flex-start'>
+                                    <CalendarMonthIcon />{date}
+                                </Box>
+                            </Box>
+
+                            Course Name:
                             <Typography variant="h5" gutterBottom fontWeight='medium'>
-                                Course Name:
+                                {name}
                             </Typography>
-                            {name}
+                            Provider:
                             <Typography variant="h5" gutterBottom fontWeight='medium'>
-                                Provider:
+                                {provider}
                             </Typography >
-                            {provider}
+                            University:
                             <Typography variant="h5" gutterBottom fontWeight='medium'>
-                                University:
+                                {university}
                             </Typography>
-                            {university}
+
                             <Box component="span" sx={{
                                 display: 'flex',
                                 justifyContent: 'space-between',
                             }}>
-                                <Typography variant="h5" gutterBottom fontWeight='medium'>Parent:<Typography >{parent}</Typography></Typography>
+                                <Typography variant="div">Parent:<Typography variant="h5" gutterBottom fontWeight='medium'>{parent}</Typography></Typography>
 
-                                <Typography variant="h5" gutterBottom fontWeight='medium'>Child:<Typography >{child}</Typography></Typography>
+                                <Typography variant="div">Child:<Typography variant="h5" gutterBottom fontWeight='medium'>{child}</Typography></Typography>
 
                             </Box>
 

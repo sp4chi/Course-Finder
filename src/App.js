@@ -6,6 +6,7 @@ import Textfield from "./Components/Textfield/Textfield";
 
 import Card from "./Components/Card/CardLogic";
 import { Box } from "@mui/material";
+import Title from "./Components/Title/Title";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         background: 'linear-gradient(270deg, #afd0de, #efcad5)'
       }}>
         <Navbar />
-
+        <Title />
         <Textfield />
 
         <Card />

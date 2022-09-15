@@ -2,8 +2,9 @@ import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import axios from 'axios'
 import CardContents from "./CardContent";
-import MyPagination from "../MyPagination/MyPagination";
-
+//import MyPagination from "../MyPagination/MyPagination";
+//import CustomPagination from "../MyPagination/Practice/CustomPagination";
+import CustomPPagination from '../MyPagination/CustomPPagination'
 
 
 const url = 'https://nut-case.s3.amazonaws.com/coursessc.json';
@@ -14,7 +15,7 @@ const CardLogic = () => {
   const [cards, getCards] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(6);
+  const [cardsPerPage] = useState(6);
 
   const fetchData = async () => {
     try {
@@ -39,12 +40,14 @@ const CardLogic = () => {
   }, [])
 
   //get index of current post
-  const indexOfLastPost = currentPage * postsPerPage
-  const indexOfFirstPost = indexOfLastPost - postsPerPage
+  const indexOfLastPost = currentPage * cardsPerPage
+  const indexOfFirstPost = indexOfLastPost - cardsPerPage
   const currentCards = cards.slice(indexOfFirstPost, indexOfLastPost)
 
+  //change page
+  const paginate = pageNumber => setCurrentPage(pageNumber)
 
-  // console.log(cards)
+
   return (
     <Box m={8} p={2} >
 
@@ -52,11 +55,22 @@ const CardLogic = () => {
         loading={loading}
         cards={currentCards}
       />
-      <MyPagination />
-    </Box >
+      <CustomPPagination
+        totalCount={cards.length}
+        currentPage={currentPage}
+        pageSize={cardsPerPage}
+        onPageChange={paginate} />
 
 
-  );
+      {/* <CustomPagination
+        cardsPerPage={cardsPerPage}
+        totalCards={cards.length}
+        paginate={paginate} /> */}
+      {/* <MyPagination /> */}
+
+    </Box >)
+
+
 }
 
 export default CardLogic;
