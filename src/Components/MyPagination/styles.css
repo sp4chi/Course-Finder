@@ -12,8 +12,8 @@
 
 nav {
     display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    justify-content: center;
+
     align-content: flex-start;
     border-top: 1px solid #eee;
     margin-top: 1em;

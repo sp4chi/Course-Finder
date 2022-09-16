@@ -49,7 +49,7 @@ const CardLogic = () => {
 
 
   return (
-    <Box m={8} p={2} >
+    <Box m={8} pl={20} pr={20} >
 
       <CardContents
         loading={loading}
