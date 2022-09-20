@@ -1,10 +1,9 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import axios from 'axios'
 import CardContents from "./CardContent";
-//import MyPagination from "../MyPagination/MyPagination";
-//import CustomPagination from "../MyPagination/Practice/CustomPagination";
 import CustomPPagination from '../MyPagination/CustomPPagination'
+import BarData from "../Chart/BarData";
 
 
 const url = 'https://nut-case.s3.amazonaws.com/coursessc.json';
@@ -12,7 +11,7 @@ const url = 'https://nut-case.s3.amazonaws.com/coursessc.json';
 
 const CardLogic = () => {
 
-  const [cards, getCards] = useState([]);
+  const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage] = useState(6);
@@ -22,9 +21,9 @@ const CardLogic = () => {
       setLoading(true)
       const response = await axios.get(url);
       const data = response.data;
-
-      getCards(data)
+      setCards(data)
       setLoading(false)
+
     }
 
     catch (error) {
@@ -33,11 +32,11 @@ const CardLogic = () => {
 
 
   }
-
   useEffect(() => {
     fetchData()
-
   }, [])
+
+
 
   //get index of current post
   const indexOfLastPost = currentPage * cardsPerPage
@@ -49,24 +48,27 @@ const CardLogic = () => {
 
 
   return (
-    <Box m={8} pl={20} pr={20} >
+    <Box m={8}  >
 
       <CardContents
         loading={loading}
         cards={currentCards}
       />
+
+      <Box m={8}>
+        <Typography variant="h4" gutterBottom fontWeight='normal' color='info.main'>Charts</Typography>
+        <BarData
+          barData={cards}
+        />
+      </Box>
+
+
       <CustomPPagination
         totalCount={cards.length}
         currentPage={currentPage}
         pageSize={cardsPerPage}
         onPageChange={paginate} />
 
-
-      {/* <CustomPagination
-        cardsPerPage={cardsPerPage}
-        totalCards={cards.length}
-        paginate={paginate} /> */}
-      {/* <MyPagination /> */}
 
     </Box >)
 

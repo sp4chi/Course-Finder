@@ -14,7 +14,7 @@ const CardContents = (props) => {
     //console.log(name)
     if (props.loading) return <h1>Loading...</h1>
 
-    return <Grid container rowSpacing={5} columnSpacing={15} >
+    return <Grid container rowSpacing={3} columnSpacing={3} >
         {props.cards.map(card => {
             const { "Course Id": id, "Course Name": name, "Provider": provider, "Child Subject": child, "Universities/Institutions": university,
                 "Url": url, "Video(Url)": video, "Parent Subject": parent, "Next Session Date": date } = card
@@ -27,7 +27,7 @@ const CardContents = (props) => {
                     }}
                 >
                     <Card elevation={10} style={{
-                        maxHeight: '500px',
+                        height: '450px',
                         backgroundColor: 'rgba(0, 0, 0, 0)',
                         borderRadius: '10px',
                     }} >
