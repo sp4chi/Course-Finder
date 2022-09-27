@@ -11,6 +11,7 @@ import {
 } from 'chart.js';
 
 import BarChart from './BarChart'
+import MultipleSelect from './MuiSelect';
 
 ChartJS.register(
     CategoryScale,
@@ -22,14 +23,14 @@ ChartJS.register(
 );
 
 
-const BarData = (props) => {
+const BarData = ({ barData }) => {
     const options = {
         responsive: true,
 
     };
 
     const myMap = []
-    const a = props.barData.map(x => x['Provider']).filter(e => e)
+    const a = barData.map(x => x['Provider']).filter(e => e)
 
     for (let i = 0; i < a.length; i++) {
         if (myMap[a[i]])
@@ -53,6 +54,7 @@ const BarData = (props) => {
     };
     //console.log(myMap)
     return (<>
+        <MultipleSelect />
         <BarChart data={bardata} options={options} />
     </>)
 

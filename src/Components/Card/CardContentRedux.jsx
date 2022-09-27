@@ -10,7 +10,11 @@ import {
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 
-const CardContents = (props) => {
+
+const CardContentRedux = (props) => {
+
+
+
     //console.log(name)
     if (props.loading) return <h1>Loading...</h1>
 
@@ -107,4 +111,4 @@ const CardContents = (props) => {
 
 }
 
-export default CardContents;
+export default CardContentRedux;

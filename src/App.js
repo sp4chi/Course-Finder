@@ -4,26 +4,26 @@ import Navbar from "./Components/Navbar/Nav";
 
 import Textfield from "./Components/Textfield/Textfield";
 
-import Card from "./Components/Card/CardLogic";
+import CardLogicRedux from "./Components/Card/CardLogicRedux";
 import { Box } from "@mui/material";
 import Title from "./Components/Title/Title";
+import { Provider } from "react-redux";
+import store from "./Redux/store";
 
 function App() {
   return (
-    <div className="App">
-      <Box sx={{
-        background: 'linear-gradient(270deg, #afd0de, #efcad5)'
-      }}>
-        <Navbar />
-        <Title />
-        <Textfield />
-
-        <Card />
-      </Box>
-
-
-
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Box sx={{
+          background: 'linear-gradient(270deg, #afd0de, #efcad5)'
+        }}>
+          <Navbar />
+          <Title />
+          <Textfield />
+          <CardLogicRedux />
+        </Box>
+      </div>
+    </Provider>
   );
 }
 
